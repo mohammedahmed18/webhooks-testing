@@ -1,10 +1,8 @@
-
 name: Codeflash Optimization
 
 on:
   workflow_dispatch:
 
-  
 jobs:
   optimize:
     name: Optimize new Python code
@@ -14,6 +12,7 @@ jobs:
       CODEFLASH_API_KEY: __af375oR7yvwPrFZzgAAfbTcLf_-5OfWzkTeuWTK7LZ9bVi3RJNKMnLSFMp2CpC
       CODEFLASH_PR_NUMBER: 1
       COLUMNS: 110
+
     steps:
       - name: 🛎️ Checkout
         uses: actions/checkout@v4
@@ -23,15 +22,25 @@ jobs:
       - name: 🐍 Set up Python 3.11 for CLI
         uses: actions/setup-python@v5 
         with:
-          python-version: '3.11.6' 
+          python-version: '3.11.6'
 
-      - name: 📦 Install dependencies (CLI)
+      - name: 📦 Install Poetry
         run: |
-          pip install codeflash
+          curl -sSL https://install.python-poetry.org | python3 -
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      - name: 🛠️ Initialize pyproject.toml if missing
+        run: |
+          if [ ! -f pyproject.toml ]; then
+            poetry init -n
+          fi
+
+      - name: 📦 Install dependencies with Poetry
+        run: |
+          poetry add codeflash
+          poetry install
 
       - name: ⚡️Codeflash Optimization
         id: optimize_code
         run: |
-          codeflash
-
-      
+          poetry run codeflash
