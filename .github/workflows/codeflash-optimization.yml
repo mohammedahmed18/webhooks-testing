@@ -1,0 +1,37 @@
+
+name: Codeflash Optimization
+
+on:
+  workflow_dispatch:
+
+  
+jobs:
+  optimize:
+    name: Optimize new Python code
+    runs-on: ubuntu-latest
+    env:
+      CODEFLASH_AIS_SERVER: prod
+      CODEFLASH_API_KEY: __af375oR7yvwPrFZzgAAfbTcLf_-5OfWzkTeuWTK7LZ9bVi3RJNKMnLSFMp2CpC
+      CODEFLASH_PR_NUMBER: 1
+      COLUMNS: 110
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 🐍 Set up Python 3.11 for CLI
+        uses: actions/setup-python@v5 
+        with:
+          python-version: '3.11.6' 
+
+      - name: 📦 Install dependencies (CLI)
+        run: |
+          pip install codeflash
+
+      - name: ⚡️Codeflash Optimization
+        id: optimize_code
+        run: |
+          codeflash
+
+      
