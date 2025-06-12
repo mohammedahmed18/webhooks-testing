@@ -1,46 +1,38 @@
 name: Codeflash Optimization
-
+permissions:
+  contents: read
 on:
+  pull_request:
+    paths:
+      - inference/**
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   optimize:
-    name: Optimize new Python code
+    # if: ${{ github.actor != 'codeflash-ai[bot]' && github.event.pull_request.head.repo.fork == false }}
     runs-on: ubuntu-latest
     env:
-      CODEFLASH_AIS_SERVER: prod
       CODEFLASH_API_KEY: __af375oR7yvwPrFZzgAAfbTcLf_-5OfWzkTeuWTK7LZ9bVi3RJNKMnLSFMp2CpC
-      CODEFLASH_PR_NUMBER: 1
-      COLUMNS: 110
-
+      CODEFLASH_PR_NUMBER: 2
     steps:
       - name: 🛎️ Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: 🐍 Set up Python 3.11 for CLI
-        uses: actions/setup-python@v5 
+      - name: 🐍 Set up Python 3.12
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11.6'
-
-      - name: 📦 Install Poetry
+          python-version: "3.12"
+          check-latest: true
+      - name: 📦 Install dependencies
         run: |
-          curl -sSL https://install.python-poetry.org | python3 -
-          echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-      - name: 🛠️ Initialize pyproject.toml if missing
-        run: |
-          if [ ! -f pyproject.toml ]; then
-            poetry init -n
-          fi
-
-      - name: 📦 Install dependencies with Poetry
-        run: |
-          poetry add codeflash
-          poetry install
-
+          python -m pip install --upgrade pip
+          pip install --upgrade setuptools
+          pip install codeflash
       - name: ⚡️Codeflash Optimization
-        id: optimize_code
-        run: |
-          poetry run codeflash
+        run: codeflash
+
