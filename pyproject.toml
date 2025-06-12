@@ -1,0 +1,9 @@
+[tool.codeflash]
+# All paths are relative to this pyproject.toml's directory.
+module-root = "app"
+tests-root = "tests"
+test-framework = "pytest"
+benchmarks-root = ""
+ignore-paths = []
+disable-telemetry = true
+formatter-cmds = ["black $file"]
