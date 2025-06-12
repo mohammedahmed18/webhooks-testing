@@ -2,10 +2,12 @@ name: Codeflash Optimization
 permissions:
   contents: read
 on:
-  pull_request:
-    paths:
-      - inference/**
   workflow_dispatch:
+    inputs:
+      file:
+        required: true
+      function:
+        required: true
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -34,5 +36,5 @@ jobs:
           pip install --upgrade setuptools
           pip install codeflash black
       - name: ⚡️Codeflash Optimization
-        run: codeflash
+        run: codeflash --file ${{github.event.inputs.file}} --function ${{github.event.inputs.function}}
 
