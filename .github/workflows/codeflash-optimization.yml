@@ -16,7 +16,7 @@ jobs:
     # if: ${{ github.actor != 'codeflash-ai[bot]' && github.event.pull_request.head.repo.fork == false }}
     runs-on: ubuntu-latest
     env:
-      CODEFLASH_API_KEY: cf-PZj6JG6jKKZHOXq0iOt9TUg0o-a-sQu-RsaVh3YRwRz0MrBB2u1gejKoWCbIfnFi
+      CODEFLASH_API_KEY: ${{secrets.CODEFLASH_API_KEY}}
       CODEFLASH_PR_NUMBER: 2
     steps:
       - name: 🛎️ Checkout
