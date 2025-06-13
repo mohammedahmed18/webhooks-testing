@@ -36,7 +36,7 @@ jobs:
           uv tool install poetry
           uv venv
           source .venv/bin/activate
-          poetry install --with dev
+          poetry install codeflash
 
       - name: ⚡️Codeflash Optimization
         id: optimize_code
