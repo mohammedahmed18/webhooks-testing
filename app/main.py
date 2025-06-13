@@ -8,3 +8,8 @@ def sorter(arr):
                 arr[j + 1] = temp
     print(f"result: {arr}")
     return arr
+
+
+def newFunc():
+    print("codeflash stdout: This is a new function")
+    return "This is a new function"
