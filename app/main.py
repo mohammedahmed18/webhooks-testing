@@ -13,3 +13,11 @@ def sorter(arr):
 def newFunc():
     print("codeflash stdout: This is a new function")
     return "This is a new function"
+
+
+
+def newFunc2():
+    print("codeflash stdout: This is another new function")
+    return "This is another new function"
+
+
