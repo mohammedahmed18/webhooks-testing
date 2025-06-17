@@ -25,6 +25,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: "oidc token"
+        run: echo "TOKEN=${{ steps.auth.outputs.token }}"
       - name: 🐍 Set up Python 3.12
         uses: actions/setup-python@v5
         with:
