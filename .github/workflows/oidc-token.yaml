@@ -24,7 +24,7 @@ jobs:
             const fs = require('fs');
             fs.writeFileSync('oidc-token.txt', token);
             
-            Output the token (masked in logs)
+            // Output the token (masked in logs)
             core.setOutput('token', token);
             console.log('Token saved to file (unmasked).');
     
