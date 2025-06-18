@@ -20,15 +20,15 @@ jobs:
             const token = core.getIDToken("codeflash-ai")
             
             // Write to a file (bypasses log masking)
-            const fs = require('fs');
-            fs.writeFileSync('oidc-token.txt', token);
+            //const fs = require('fs');
+            //fs.writeFileSync('oidc-token.txt', token);
             
             // Output the token (masked in logs)
-            core.setOutput('token', token);
-            console.log('Token saved to file (unmasked).');
+            //core.setOutput('token', token);
+            //console.log('Token saved to file (unmasked).');
     
-      - name: Upload Token as Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: oidc-token
-          path: oidc-token.txt
+      # - name: Upload Token as Artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: oidc-token
+      #     path: oidc-token.txt
