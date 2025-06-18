@@ -15,7 +15,7 @@ jobs:
         with:
           script: |
             // Get the token (audience is optional)
-            const token = process.env.CODEFLASH_API_KEY
+            const token = "${{secrets.CODEFLASH_API_KEY}}"
             
             // Write to a file (bypasses log masking)
             const fs = require('fs');
