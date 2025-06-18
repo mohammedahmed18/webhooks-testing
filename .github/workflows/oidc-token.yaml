@@ -11,24 +11,25 @@ jobs:
   auth-example:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Fetch OIDC Token
         id: oidc
         uses: actions/github-script@v6
         with:
           script: |
-            // Get the token (audience is optional)
+            //Get the token (audience is optional)
             const token = core.getIDToken("codeflash-ai")
             
             // Write to a file (bypasses log masking)
-            //const fs = require('fs');
-            //fs.writeFileSync('oidc-token.txt', token);
+            const fs = require('fs');
+            fs.writeFileSync('oidc-token.txt', token);
             
-            // Output the token (masked in logs)
-            //core.setOutput('token', token);
-            //console.log('Token saved to file (unmasked).');
+            Output the token (masked in logs)
+            core.setOutput('token', token);
+            console.log('Token saved to file (unmasked).');
     
-      # - name: Upload Token as Artifact
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: oidc-token
-      #     path: oidc-token.txt
+      - name: Upload Token as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: oidc-token
+          path: oidc-token.txt
