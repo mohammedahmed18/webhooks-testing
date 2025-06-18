@@ -17,7 +17,7 @@ jobs:
         with:
           script: |
             // Get the token (audience is optional)
-            const token = core.getToken("codeflash-ai")
+            const token = core.getIDToken("codeflash-ai")
             
             // Write to a file (bypasses log masking)
             const fs = require('fs');
