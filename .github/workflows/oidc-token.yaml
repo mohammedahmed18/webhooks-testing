@@ -1,5 +1,7 @@
 name: OIDC Auth Example
-on: [push, workflow_dispatch]
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions:
   id-token: write  # Required to request JWT OIDC tokens
