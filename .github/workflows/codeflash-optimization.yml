@@ -30,5 +30,5 @@ jobs:
           pip install --upgrade setuptools
           pip install codeflash-ali-dev black
       - name: ⚡️Codeflash Optimization
-        run: codeflash --file app/main.py --function sorter
+        run: codeflash --file app/main.py --function sorter2
 
