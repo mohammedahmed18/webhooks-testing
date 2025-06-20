@@ -12,20 +12,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      # - name: Fetch OIDC Token
-      #   id: oidc
-      #   uses: actions/github-script@v6
-      #   with:
-      #     script: |
-      #       //Get the token (audience is optional)
-      #       const token = core.getIDToken("codeflash-ai")
+      - name: Fetch OIDC Token
+        id: oidc
+        uses: actions/github-script@v6
+        with:
+          script: |
+            // const token = core.getIDToken("codeflash-ai")
             
-      #       // Write to a file (bypasses log masking)
-      #       const fs = require('fs');
-      #       fs.writeFileSync('oidc-token.txt', token);
+            // Write to a file (bypasses log masking)
+            // const fs = require('fs');
+            // fs.writeFileSync('oidc-token.txt', token);
             
-      #       // Output the token (masked in logs)
-      #       core.setOutput('token', token);    
+            // Output the token (masked in logs)
+            // core.setOutput('token', token);
+            const eventsPath = process.env.GITHUB_EVENT_PATH
+            const jsonContent = fs.readFileSync(eventsPath, 'utf8');
+            fs.writeFileSync("events.json", jsonContent)
+
+
       # - name: Upload Token as Artifact
       #   uses: actions/upload-artifact@v4
       #   with:
@@ -38,4 +42,4 @@ jobs:
           EVENT_PATH: $GITHUB_EVENT_PATH
         with:
           name: events
-          path: ${{env.EVENT_PATH}}          
+          path: events.json      
