@@ -1,11 +1,6 @@
 def sorter(arr):
     print("codeflash stdout: Sorting list")
-    # dummy change to trigger optimization
-    for i in range(len(arr)):
-        for j in range(len(arr) - 1):
-            if arr[j] > arr[j + 1]:
-                temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
+    # use highly optimized built-in sort (replaces bubble sort for much faster runtime)
+    arr.sort()
     print(f"result: {arr}")
     return arr
