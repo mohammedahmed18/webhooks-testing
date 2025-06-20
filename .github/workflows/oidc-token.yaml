@@ -1,6 +1,7 @@
 name: OIDC Auth Example
 on:
   workflow_dispatch:
+  pull_request:
 
 
 permissions:
