@@ -2,12 +2,7 @@ name: Codeflash Optimization
 permissions:
   contents: read
 on:
-  workflow_dispatch:
-    inputs:
-      file:
-        required: true
-      function:
-        required: true
+  pull_request:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -25,13 +20,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Get OIDC token
-        id: auth
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const token = await core.getIDToken();
-            console.log({token})
       - name: 🐍 Set up Python 3.12
         uses: actions/setup-python@v5
         with:
@@ -41,7 +29,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --upgrade setuptools
-          pip install codeflash black
+          pip install codeflash-ali-dev black
       - name: ⚡️Codeflash Optimization
-        run: codeflash --file ${{github.event.inputs.file}} --function ${{github.event.inputs.function}}
+        run: codeflash-ali-dev
 
