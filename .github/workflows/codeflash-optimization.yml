@@ -14,7 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CODEFLASH_API_KEY: ${{secrets.CODEFLASH_API_KEY}}
-      CODEFLASH_PR_NUMBER: 2
     steps:
       - name: 🛎️ Checkout
         uses: actions/checkout@v4
@@ -31,5 +30,5 @@ jobs:
           pip install --upgrade setuptools
           pip install codeflash-ali-dev black
       - name: ⚡️Codeflash Optimization
-        run: codeflash-ali-dev
+        run: codeflash --file app/main.py --function sorter2
 
