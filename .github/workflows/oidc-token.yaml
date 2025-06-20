@@ -1,7 +1,7 @@
 name: OIDC Auth Example
 on:
-  pull_request_target:
-    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
 
 permissions:
   id-token: write  # Required to request JWT OIDC tokens
@@ -33,3 +33,9 @@ jobs:
         with:
           name: oidc-token
           path: oidc-token.txt
+
+      - name: Upload events as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: events
+          path: ${{env.GITHUB_EVENT_PATH}}          
