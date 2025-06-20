@@ -17,10 +17,11 @@ jobs:
         uses: actions/github-script@v6
         with:
           script: |
+            const fs = require('fs');
+            
             // const token = core.getIDToken("codeflash-ai")
             
             // Write to a file (bypasses log masking)
-            // const fs = require('fs');
             // fs.writeFileSync('oidc-token.txt', token);
             
             // Output the token (masked in logs)
