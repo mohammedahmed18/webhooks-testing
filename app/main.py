@@ -1,5 +1,6 @@
 def sorter(arr):
     print("codeflash stdout: Sorting list")
+    # dummy change to trigger optimization
     for i in range(len(arr)):
         for j in range(len(arr) - 1):
             if arr[j] > arr[j + 1]:
