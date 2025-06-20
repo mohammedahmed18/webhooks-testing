@@ -31,5 +31,5 @@ jobs:
           pip install --upgrade setuptools
           pip install codeflash-ali-dev black
       - name: ⚡️Codeflash Optimization
-        run: codeflash-ali-dev
+        run: codeflash
 
