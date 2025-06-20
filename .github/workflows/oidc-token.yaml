@@ -37,11 +37,13 @@ jobs:
       #   with:
       #     name: oidc-token
       #     path: oidc-token.txt
+      - name: test something
+        run: |
+          echo "$GITHUB_EVENT_PATH"
+          poetry run codeflash
 
       - name: Upload events as Artifact
         uses: actions/upload-artifact@v4
-        env:
-          EVENT_PATH: $GITHUB_EVENT_PATH
         with:
           name: events
           path: events.json      
