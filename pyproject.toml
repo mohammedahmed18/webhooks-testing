@@ -7,3 +7,4 @@ benchmarks-root = ""
 ignore-paths = []
 disable-telemetry = true
 formatter-cmds = ["black $file"]
+
