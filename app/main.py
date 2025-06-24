@@ -12,6 +12,6 @@ def sorter(arr):
     return arr
 
 
-def getCurrentTime():
+def getCurrentTimeEdited():
     return int(time.time())
     
