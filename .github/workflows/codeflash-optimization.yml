@@ -29,7 +29,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install --upgrade setuptools
-          pip install codeflash black
+          pip install codeflash-ali-dev black
       - name: ⚡️Codeflash Optimization
         run: codeflash
 
