@@ -1,3 +1,5 @@
+import time    
+
 def sorter(arr):
     print("codeflash stdout: Sorting list")
     for i in range(len(arr)):
@@ -8,3 +10,8 @@ def sorter(arr):
                 arr[j + 1] = temp
     print(f"result: {arr}")
     return arr
+
+
+def getCurrentTime():
+    return int(time.time())
+    
