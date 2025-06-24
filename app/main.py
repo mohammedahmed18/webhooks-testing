@@ -1,4 +1,5 @@
-import time    
+import time
+from datetime import datetime
 
 def sorter(arr):
     print("codeflash stdout: Sorting list")
@@ -12,6 +13,7 @@ def sorter(arr):
     return arr
 
 
-def getCurrentTimeEdited2():
-    return int(time.time())
-    
+def generate_timestamped_id(prefix: str = "id") -> str:
+    """Generate an ID with a timestamp and random component."""
+    timestamp = int(time.time())
+    return f"{prefix}_{timestamp}"
