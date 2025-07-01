@@ -1,4 +1,4 @@
-def sorter(arr):
+def sorter_new(arr):
     print("codeflash stdout: Sorting list")
     for i in range(len(arr)):
         for j in range(len(arr) - 1):
@@ -11,7 +11,7 @@ def sorter(arr):
 
 
 
-def find_common_tags(articles: list[dict[str, list[str]]]) -> set[str]:
+def find_common_tags_new(articles: list[dict[str, list[str]]]) -> set[str]:
     if not articles:
         return set()
 
