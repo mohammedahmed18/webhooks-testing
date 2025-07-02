@@ -1,5 +1,6 @@
 def sorter_lts(arr):
     print("codeflash stdout: Sorting list")
+    print("not needed")
     for i in range(len(arr)):
         for j in range(len(arr) - 1):
             if arr[j] > arr[j + 1]:
