@@ -1,6 +1,6 @@
 from app.utils import swap
 
-def sorter_lts(arr):
+def sorter_test(arr):
     print("codeflash stdout: Sorting list")
     for i in range(len(arr)):
         for j in range(len(arr) - 1):
