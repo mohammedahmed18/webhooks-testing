@@ -10,9 +10,17 @@ def sorter_test_final4(arr):
 
 def sorter_lts2(arr):
     print("codeflash stdout: Sorting list")
-    for i in range(len(arr)):
-        for j in range(len(arr) - 1):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(n - 1 - i):  # Reduce by i since last i elements are in place
             if arr[j] > arr[j + 1]:
-                arr[j], arr[j + 1] = swap(arr[j], arr[j + 1])
+                arr[j], arr[j + 1] = (
+                    arr[j + 1],
+                    arr[j],
+                )  # In-place tuple swap (fast in Python)
+                swapped = True
+        if not swapped:
+            break  # List is already sorted
     print(f"result: {arr}")
     return arr
