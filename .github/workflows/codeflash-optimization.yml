@@ -14,17 +14,30 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CODEFLASH_API_KEY: ${{secrets.CODEFLASH_API_KEY}}
-      CODEFLASH_PR_NUMBER: 2
     steps:
       - name: 🛎️ Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - name: Upload GitHub event.json as artifact
+
+      - name: Read event JSON and save copy
+        run: |
+          node -e "
+          const fs = require('fs');
+          const path = process.env.GITHUB_EVENT_PATH;
+          if (!path) throw new Error('GITHUB_EVENT_PATH is not set');
+          const data = fs.readFileSync(path, 'utf-8');
+          console.log('GitHub Event Content:\\n', data);
+          fs.writeFileSync('event_copy.json', data);
+          console.log('Saved as event_copy.json');
+          "
+
+      - name: Upload event_copy.json as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: event-json
-          path: ${{ env.GITHUB_EVENT_PATH }}
+          name: event-copy
+          path: event_copy.json
+
       - name: 🐍 Set up Python 3.12
         uses: actions/setup-python@v5
         with:
