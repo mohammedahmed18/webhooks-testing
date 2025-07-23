@@ -20,6 +20,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Upload GitHub event.json as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: event-json
+          path: ${{ env.GITHUB_EVENT_PATH }}
       - name: 🐍 Set up Python 3.12
         uses: actions/setup-python@v5
         with:
