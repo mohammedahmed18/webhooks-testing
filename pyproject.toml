@@ -3,7 +3,6 @@
 module-root = "app"
 tests-root = "tests"
 test-framework = "pytest"
-benchmarks-root = ""
 ignore-paths = []
 disable-telemetry = true
-formatter-cmds = ["black $file"]
+formatter-cmds = ["disabled"]
