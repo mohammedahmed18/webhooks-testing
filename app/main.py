@@ -13,7 +13,11 @@ def sorter_test_final10(arr):
 
 
 
-def sorter_new_3(arr):
+def another_function():
+    print("Hello world")
+
+def sorter(arr):
+    # this is a modified version of the sorter
     print("codeflash stdout: Sorting list")
     for i in range(len(arr)):
         for j in range(len(arr) - 1):
