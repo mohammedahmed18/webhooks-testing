@@ -5,10 +5,12 @@ def sorter(arr):
     # this is a modified version of the sorter
     print("codeflash stdout: Sorting list")
     for i in range(len(arr)):
-        for j in range(len(arr) - 1):
+        swapped = False
+        for j in range(len(arr) - 1 - i):
             if arr[j] > arr[j + 1]:
-                temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if not swapped:
+            break
     print(f"result: {arr}")
     return arr
