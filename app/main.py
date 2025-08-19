@@ -1,6 +1,8 @@
 def another_function():
     print("Hello world")
 
+
+# temp 2
 def sorter(arr):
     # this is a modified version of the sorter
     print("codeflash stdout: Sorting list")
