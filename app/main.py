@@ -1,14 +1,20 @@
 def another_function():
     print("Hello world")
 
-def sorter(arr):
+
+# temp 2
+def sorter2(arr):
     # this is a modified version of the sorter
     print("codeflash stdout: Sorting list")
-    for i in range(len(arr)):
-        for j in range(len(arr) - 1):
-            if arr[j] > arr[j + 1]:
-                temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
+    if len(arr) > 1:
+        arr.sort()
     print(f"result: {arr}")
     return arr
+
+
+def sorter(arr):
+    print("codeflash stdout: Sorting list")
+    arr.sort()
+    print(f"result: {arr}")
+    return arr
+
