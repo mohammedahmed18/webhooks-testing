@@ -1,11 +1,17 @@
-def another_function():
-    print("Hello world")
-
-
-# temp 2
-def sorter2(arr):
-    # this is a modified version of the sorter
-    print("codeflash stdout: Sorting list")
-    arr.sort()
-    print(f"result: {arr}")
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
     return arr
+
+
+def bubble_sort5(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+    
