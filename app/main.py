@@ -23,7 +23,7 @@ def bubble_sort_1(arr):
 
 
 
-def bubble_sort_new3(arr):
+def bubble_sort_new_77(arr):
     n = len(arr)
     for i in range(n):
         swapped = False
