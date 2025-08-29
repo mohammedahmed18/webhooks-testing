@@ -7,18 +7,18 @@ def bubble_sort(arr):
     return arr
 
 
-def bubble_sort_4(arr1):
-    n = len(arr1)
+def bubble_sort_4(arr):
+    n = len(arr)
     for i in range(n):
         did_swapped = False
         for j in range(0, n - i - 1):
-            if arr1[j] > arr1[j + 1]:
-                arr1[j], arr1[j + 1] = arr1[j + 1], arr1[j]
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 did_swapped = True
         if not did_swapped:
             break
 
-    return arr1
+    return arr
 
 
 
