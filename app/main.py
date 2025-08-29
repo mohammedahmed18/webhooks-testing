@@ -19,6 +19,7 @@ def bubble_sort5(arr):
             break
     return arr
 
+
 def bubble_sort_new(arr):
     n = len(arr)
     for i in range(n):
