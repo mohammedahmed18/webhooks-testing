@@ -7,7 +7,7 @@ def bubble_sort(arr):
     return arr
 
 
-def bubble_sort_3(arr):
+def bubble_sort_1(arr):
     n = len(arr)
     for i in range(n):
         swapped = False
