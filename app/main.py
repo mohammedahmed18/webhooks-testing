@@ -17,6 +17,7 @@ def bubble_sort5(arr):
                 swapped = True
         if not swapped:
             break
+
     return arr
 
 
