@@ -23,17 +23,18 @@ def bubble_sort_1(arr):
 
 
 
-def bubble_sort_new_77(arr):
-    n = len(arr)
+def bubble_sort_new_77(arr1):
+    n = len(arr1)
     for i in range(n):
         swapped = False
         bound = n - i - 1
         for j in range(bound):
-            a = arr[j]
-            b = arr[j + 1]
+            a = arr1[j]
+            b = arr1[j + 1]
             if a > b:
-                arr[j], arr[j + 1] = b, a
+                arr1[j], arr1[j + 1] = b, a
                 swapped = True
         if not swapped:
             break
-    return arr
+    return arr1
+
