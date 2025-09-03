@@ -5,7 +5,6 @@ def swap2(val1, val2):
     val2 = temp
     return (val1, val2)
 
-
 def sorter(arr):
     arr.sort()
     return arr

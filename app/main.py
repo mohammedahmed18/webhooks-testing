@@ -21,8 +21,6 @@ def bubble_sort_4(arr1):
     return arr1
 
 
-
-
 def bubble_sort_new_77(arr1):
     n = len(arr1)
     for i in range(n):
