@@ -1,14 +1,42 @@
-def another_function():
-    print("Hello world")
-
-def sorter(arr):
-    # this is a modified version of the sorter
-    print("codeflash stdout: Sorting list")
-    for i in range(len(arr)):
-        for j in range(len(arr) - 1):
+def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        swapped = False
+        for j in range(0, n - i - 1):
             if arr[j] > arr[j + 1]:
-                temp = arr[j]
-                arr[j] = arr[j + 1]
-                arr[j + 1] = temp
-    print(f"result: {arr}")
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if not swapped:
+            break
     return arr
+
+
+def bubble_sort_4(arr1):
+    n = len(arr1)
+    for i in range(n):
+        did_swapped = False
+        for j in range(0, n - i - 1):
+            if arr1[j] > arr1[j + 1]:
+                arr1[j], arr1[j + 1] = arr1[j + 1], arr1[j]
+                did_swapped = True
+        if not did_swapped:
+            break
+
+    return arr1
+
+
+def bubble_sort_new_77(arr1):
+    n = len(arr1)
+    for i in range(n):
+        did_swapped = False
+        bound = n - i - 1
+        for j in range(bound):
+            a = arr1[j]
+            b = arr1[j + 1]
+            if a > b:
+                arr1[j], arr1[j + 1] = b, a
+                did_swapped = True
+        if not did_swapped:
+            break
+    return arr1
+
